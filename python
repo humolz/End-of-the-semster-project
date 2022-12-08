@@ -1,0 +1,34 @@
+import random
+import time
+
+def game():
+    print("Welcome to the guessing game")
+    print("You have 5 chances to guess the number")
+    print("The number is between 1 and 100")
+    print("Good luck")
+    time.sleep(3)
+    number = random.randint(1, 100)
+    guess = int(input("Enter your guess: "))
+    count = 1
+    while guess != number and count < 5:
+        if guess > number:
+            print("Your guess is too high")
+            guess = int(input("Enter your guess: "))
+            count = count + 1
+        elif guess < number:
+            print("Your guess is too low")
+            guess = int(input("Enter your guess: "))
+            count = count + 1
+    if guess == number:
+        print("Congratulations you guessed the number!")
+    else:
+        print("Sorry you have run out of guesses")
+        print("The number was", number)
+    again = input("Do you want to play again? (Yes/No): ")
+    if again == "yes" or again == "Yes":
+        game()
+    else:
+        print("Thank you for playing!")
+        time.sleep(3)
+        print("Goodbye")
+game()
